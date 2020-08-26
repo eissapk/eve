@@ -24,6 +24,8 @@ Eve is a virtual assistant that simplifies your daily routine.
 ### Credits
 
 ```
+SpeechRecognition API
+SpeechSynthesis API
 Climacell Weather API
 Wikipedia API
 Aladhan Prayer API
