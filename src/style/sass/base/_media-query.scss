@@ -1,0 +1,26 @@
+@import "../helpers/variables";
+@import "../helpers/functions";
+@import "../helpers/mixins";
+
+/* START header */
+header {
+    @include tablet {
+        #robotCon {
+            width: 720px;
+        }
+    }
+}
+
+/* END header */
+
+/* START settings */
+#settingsPage {
+    @include tablet {
+        #innerSettings {
+            width: 720px;
+            margin: 0 auto;
+        }
+    }
+}
+
+/* END settings */

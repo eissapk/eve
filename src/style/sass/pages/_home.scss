@@ -1,0 +1,260 @@
+// helpers
+@import "../helpers/variables";
+@import "../helpers/functions";
+@import "../helpers/mixins";
+
+// !components
+@import "../components/buttons";
+@import "../components/switch";
+@import "../components/range";
+
+//! layout
+// @import "../layout/nav";
+@import "../layout/header";
+
+//* Start actualPage
+#myVideo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  z-index: -1;
+}
+
+// notification
+#notify {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 0.9em;
+  text-align: center;
+  line-height: 22px;
+  background-color: $red;
+  color: $white;
+  border-radius: $radius;
+  animation: notify 0.3s cubic-bezier(0, 1.57, 1, 1) forwards;
+  z-index: 6;
+  display: none;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+// settings icon
+#settingsMenu {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1;
+
+  > li {
+    position: relative;
+    min-width: 50px;
+    min-height: 50px;
+    list-style-type: none;
+    cursor: pointer;
+
+    // icon
+    svg {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 25px;
+      height: 25px;
+      fill: $blue;
+    }
+
+    // list
+    ul {
+      min-width: 200px;
+      position: absolute;
+      left: 0;
+      top: 50px;
+      padding: 10px 0;
+      list-style-type: none;
+      background-color: $brown;
+      color: $white;
+      border-radius: $radius;
+      transform-origin: top left;
+      opacity: 0;
+      transform: scale(0);
+
+      li {
+        padding: 10px 30px;
+        text-transform: capitalize;
+        transition: background 0.1s ease-in-out;
+
+        &:hover {
+          background: $linearGradient;
+        }
+      }
+    }
+
+    &:hover ul {
+      animation: scaleEffect 0.3s cubic-bezier(0.42, 0, 0.6, 1.17) forwards;
+    }
+
+    &:not(:hover) ul {
+      animation: scaleEffect2 0.3s ease-in-out forwards;
+    }
+  }
+}
+
+// settings page
+#settingsPage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 80px 20px 20px;
+  background-color: $subTextColor;
+  z-index: 5;
+  overflow: auto;
+  display: none;
+
+  // layers holder
+  #innerSettings {
+    // general
+    .settingsLayer {
+      background-color: $brown;
+      color: $white;
+      border-radius: $radius;
+      padding: 0 5px;
+      display: none;
+
+      // option container
+      section {
+        min-height: 30px;
+        padding: 10px 20px;
+        overflow: hidden;
+        box-sizing: content-box;
+        border-bottom: 1px solid $subTextColor;
+
+        &:last-of-type {
+          border-bottom: 0;
+        }
+
+        // option text
+        .option {
+          float: $floatLeft;
+          width: calc(100% - 80px);
+          line-height: 30px;
+          word-break: break-all;
+
+          &::first-letter {
+            text-transform: uppercase;
+          }
+        }
+
+        .toggle {
+          float: $floatRight;
+        }
+      }
+    }
+
+    // voice
+    .voiceLayer {
+      section {
+        label {
+          display: block;
+          height: 30px;
+          line-height: 30px;
+          text-transform: capitalize;
+
+          span {
+            margin-left: 10px;
+            background: $linearGradient;
+            padding: 2.5px 5px;
+            border-radius: 3px;
+          }
+        }
+      }
+    }
+
+    // help
+    .helpLayer {
+      padding: 0;
+
+      section {
+        padding: 0;
+
+        p {
+          padding: 10px 20px;
+          line-height: 30px;
+          min-height: 30px;
+          border-bottom: 1px solid $subTextColor;
+          user-select: none;
+
+          &:first-of-type {
+            &:hover {
+              border-radius: $radius $radius 0 0;
+            }
+          }
+
+          &:last-of-type {
+            &:hover {
+              border-radius: 0 0 $radius $radius;
+            }
+          }
+
+          &:hover {
+            background: $linearGradient;
+          }
+
+          &:last-of-type {
+            border-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//* End actualPage
+
+//! layout
+@import "../layout/footer";
+
+//! keyframes
+// notification
+@keyframes notify {
+  from {
+    opacity: 0;
+    top: -50px;
+  }
+
+  to {
+    opacity: 1;
+    top: 15px;
+  }
+}
+
+// menu
+@keyframes scaleEffect {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleEffect2 {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}

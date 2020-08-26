@@ -1,0 +1,46 @@
+header
+    //- run button
+    button(type="button", id="runBtn")
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56">
+            <path d="M35.3 5.042a1 1 0 1 0-.56 1.92C44.906 9.932 52 19.405 52 30c0 13.233-10.767 24-24 24S4 43.233 4 30C4 19.392 11.105 9.915 21.28 6.953a1 1 0 0 0 .681-1.239c-.153-.53-.708-.84-1.24-.68C9.698 8.24 2 18.508 2 30c0 14.337 11.663 26 26 26s26-11.663 26-26c0-11.478-7.686-21.74-18.7-24.958zM28 27a1 1 0 0 0 1-1V1a1 1 0 1 0-2 0v25a1 1 0 0 0 1 1z"/>
+        </svg>
+
+    //- robot container
+    #robotCon
+        //- robot
+        #eyeWrapper
+            div(id="topEyeLid", class="openTopEyeLid")
+            div(class="eye right-eye")
+            div(class="eye left-eye")
+            div(id="bottomEyeLid", class="openBottomEyeLid")
+
+        //- status
+        #statusIcon
+            div(class="mic")
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 405.333 405.333">
+                    <path d="M202.667 256c35.307 0 63.787-28.693 63.787-64l.213-128c0-35.413-28.587-64-64-64-35.307 0-64 28.587-64 64v128c0 35.307 28.693 64 64 64zm113.066-64c0 64-54.08 108.8-113.067 108.8C143.787 300.8 89.6 256 89.6 192H53.333c0 72.853 58.027 133.013 128 143.36v69.973H224V335.36c69.973-10.347 128-70.507 128-143.36h-36.267z"/>
+                </svg>
+
+            div(class="dots")
+                span
+                span
+                span
+                span
+
+        //- chat
+        #chat
+            //- section
+            //-     .order 
+            //-         div
+            //-             img(src="img/user.svg", alt="user")
+            //-         div    
+            //-             span how are you doing  
+            //-     .clearFix
+            //-     .response 
+            //-         div
+            //-             img(src="img/eve.svg", alt="eve")
+            //-         div    
+            //-             span i'm pretty awesome
+
+
+

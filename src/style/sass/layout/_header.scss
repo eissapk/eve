@@ -1,0 +1,373 @@
+header {
+    position: relative;
+    min-height: calc(100vh - 40px);
+
+    // run btn
+    #runBtn {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 0;
+        background: $linearGradient;
+        cursor: pointer;
+        animation: glow 1.5s linear infinite;
+
+        &:focus {
+            outline: none;
+        }
+
+        svg {
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            fill: $subTextColor;
+        }
+    }
+
+    // robot container
+    #robotCon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        display: none;
+
+        // robot eyes container
+        #eyeWrapper {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            margin: 0 auto;
+
+            // lids
+            #topEyeLid,
+            #bottomEyeLid {
+                position: absolute;
+                content: "";
+                left: -25px;
+                width: calc(100% + 50px);
+                height: 100%;
+                background-color: $subTextColor;
+                z-index: 1;
+            }
+
+            #topEyeLid {
+                top: -150%;
+            }
+
+            #bottomEyeLid {
+                bottom: -150%;
+            }
+
+            // eyes
+            .eye {
+                width: 80px;
+                height: 50px;
+                background: $radialGradient;
+                border-radius: 50%;
+                box-shadow: 0 0 12px 6px rgba($blue, 0.3);
+            }
+
+            .right-eye {
+                float: $floatRight;
+                transform: rotate(-10deg);
+            }
+
+            .left-eye {
+                float: $floatLeft;
+                transform: rotate(10deg);
+            }
+
+            //* animations
+            .closeTopEyeLid {
+                animation: closeTopEyeLid 0.3s ease-in-out forwards;
+            }
+
+            .closeBottomEyeLid {
+                animation: closeBottomEyeLid 0.3s ease-in-out forwards;
+            }
+
+            .openTopEyeLid {
+                animation: openTopEyeLid 0.3s ease-in-out forwards;
+            }
+
+            .openBottomEyeLid {
+                animation: openBottomEyeLid 0.3s ease-in-out forwards;
+            }
+
+        }
+
+        // status icon
+        #statusIcon {
+            position: relative;
+            z-index: 1;
+            margin-top: 20px;
+            min-height: 7.5px;
+            max-height: 20px;
+            display: none;
+
+            >div {
+                margin: 0 auto;
+            }
+
+            .mic {
+                width: 20px;
+                height: 20px;
+                display: none;
+
+                svg {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    fill: $blue;
+                }
+            }
+
+            .dots {
+                margin: 0 auto;
+                width: 45px;
+                display: none;
+
+                span {
+                    width: 7.5px;
+                    height: 7.5px;
+                    background: $linearGradient;
+                    border-radius: 50%;
+                    margin-left: 5px;
+                    float: $floatLeft;
+
+                    &:nth-of-type(1) {
+                        margin-left: 0;
+                        animation: dots 0.6s ease-in-out infinite alternate-reverse;
+                    }
+
+                    &:nth-of-type(2) {
+                        animation: dots 0.6s 0.1s ease-in-out infinite alternate-reverse;
+
+                    }
+
+                    &:nth-of-type(3) {
+                        animation: dots 0.6s 0.2s ease-in-out infinite alternate-reverse;
+
+                    }
+
+                    &:nth-of-type(4) {
+                        animation: dots 0.6s 0.3s ease-in-out infinite alternate-reverse;
+
+                    }
+
+                }
+            }
+
+        }
+
+        .active {
+            display: block !important;
+        }
+
+        // chat
+        #chat {
+            position: relative;
+            max-height: 250px;
+            margin-top: 0px; // 0 when invisible => 50 when visible
+            z-index: 1;
+            overflow: auto;
+
+            // scroll bar
+            &::-webkit-scrollbar {
+                width: 2px;
+            }
+
+            &::-webkit-scrollbar-thumb {
+                background: $gray;
+                border-radius: 2px;
+            }
+
+            &::-webkit-scrollbar-track {
+                background: transparent;
+            }
+
+            // chat sections
+            >section {
+                overflow: hidden;
+                margin-top: 50px;
+
+                &:first-of-type {
+                    margin-top: 0;
+                }
+
+                .order {
+                    max-width: calc(100% - 30px);
+                    float: $floatRight;
+                    transform: translateY(20px);
+                    opacity: 0;
+                    animation: chat 0.3s ease-in-out forwards;
+
+                    div {
+                        overflow: hidden;
+
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            float: $floatRight;
+                            margin-bottom: 10px;
+                        }
+
+                        span {
+                            background-color: $blue;
+                            border-radius: 20px 0 20px 20px;
+                            padding: 10px 20px;
+                            line-height: 25px;
+                            font-size: 0.9em;
+                            color: $white;
+                            float: $floatRight;
+
+                            &::first-letter {
+                                text-transform: uppercase;
+                            }
+
+                        }
+                    }
+
+                }
+
+                .clearFix {
+                    clear: both;
+                }
+
+                .response {
+                    max-width: calc(100% - 30px);
+                    float: $floatLeft;
+                    transform: translateY(20px);
+                    opacity: 0;
+                    animation: chat 0.3s 0.3s ease-in-out forwards;
+
+                    div {
+                        overflow: hidden;
+
+                        img {
+                            width: 25px;
+                            height: 25px;
+                            border-radius: 50%;
+                            float: $floatLeft;
+                            margin-bottom: 10px;
+                        }
+
+                        span {
+                            background-color: $brown;
+                            border-radius: 0 20px 20px 20px;
+                            padding: 10px 20px;
+                            line-height: 25px;
+                            font-size: 0.9em;
+                            color: $white;
+                            float: $floatLeft;
+
+                            &::first-letter {
+                                text-transform: uppercase;
+                            }
+                        }
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+//! keyframes
+// close eye
+@keyframes closeTopEyeLid {
+    0% {
+        top: -150%;
+    }
+
+    100% {
+        top: -53%;
+    }
+
+}
+
+@keyframes closeBottomEyeLid {
+    0% {
+        bottom: -150%;
+    }
+
+    100% {
+        bottom: -53%;
+    }
+}
+
+// open eye
+@keyframes openTopEyeLid {
+    0% {
+        top: -53%;
+    }
+
+    100% {
+        top: -150%;
+    }
+
+}
+
+@keyframes openBottomEyeLid {
+    0% {
+        bottom: -53%;
+    }
+
+    100% {
+        bottom: -150%;
+    }
+}
+
+
+// chat animation
+@keyframes chat {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+
+// run btn
+@keyframes glow {
+    from {
+        box-shadow: 0 0 0 1px rgba($blue, 1);
+    }
+
+    to {
+        box-shadow: 0 0 0 20px rgba($blue, 0);
+    }
+}
+
+// dots
+@keyframes dots {
+    from {
+        transform: translateY(10px);
+    }
+
+    to {
+        transform: translateY(0px);
+    }
+}

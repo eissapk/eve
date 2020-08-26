@@ -1,0 +1,129 @@
+#settingsPage
+        //- close button
+        button(type="button", class="xBtn")
+                div.closeLayerBtn
+                        span.closeLayerBtn
+                        span.closeLayerBtn
+
+        //- content
+        #innerSettings
+
+                //- general settings
+                div(class="settingsLayer generalLayer")
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option time and date
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="time-switch" checked)
+                                                span(class="switch round")
+
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option alarm
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="alarm-switch" checked)
+                                                span(class="switch round")
+
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option weather
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="weather-switch" checked)
+                                                span(class="switch round")
+
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option google
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="google-switch" checked)
+                                                span(class="switch round")
+
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option wikipedia
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="wiki-switch" checked)
+                                                span(class="switch round")
+
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option request url
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="request-switch" checked)
+                                                span(class="switch round")
+
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option close tabs
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="closeTabs-switch" checked)
+                                                span(class="switch round")
+
+                        //- option wrapper
+                        section
+                                //- option text
+                                .option log out
+
+                                //- switch
+                                .toggle
+                                        label . 
+                                                input(type="checkbox", class="logOut-switch" checked)
+                                                span(class="switch round")
+
+                //- voice settings
+                //- div(class="settingsLayer voiceLayer") 
+                //-         //- volume
+                //-         section
+                //-                 label volume #[span#volumeNum 1] 
+                //-                 input(type="range", min="0", max="1",step="0.1", value="1", class="volumeRange")
+
+                //-         //- rate
+                //-         section
+                //-                 label rate #[span#rateNum 0.9] 
+                //-                 input(type="range", min="0.1", max="10",step="0.1", value="0.9", class="rateRange")
+
+                //-         //- pitch
+                //-         section
+                //-                 label pitch #[span#pitchNum 0.7] 
+                //-                 input(type="range", min="0", max="2",step="0.1", value="0.7", class="pitchRange")
+
+                //- help settings
+                div(class="settingsLayer helpLayer") 
+                        section
+                                p 🔸 Date and time 👉 just say: "What time is it?" or "What today's date"
+                                p 🔸 Weather 👉 just say: "How is the weather like?"
+                                p 🔸 Alarm 👉 Syntax: (set alarm for + minutes) 👉 just say: "set alarm for 10 minutes"
+                                p 🔸 Google 👉 Syntax: (search + query) 👉 just say: "search box office"
+                                p 🔸 Wikipedia 👉 Syntax: (define + query) 👉 just say: "define earth"
+                                p 🔸 Close windows 👉 just say: "close last window" or "close all windows"
+                                p 🔸 Request url 👉 Syntax: (request + query) 👉 just say: "request google.com"
+                                p 🔸 Bookmarks 👉 just say: "twitter", "youtube" or "facebook" and so on
+                                p 🔸 Log out 👉 just say: "good night"
